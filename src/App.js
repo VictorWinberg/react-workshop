@@ -15,6 +15,7 @@ class App extends React.Component {
           <Name first="Anton" last="Göransson " />
           <Likes amount="-3" />
         </p>
+        <Fetcher url="https://api.github.com/repos/VictorWinberg/react-workshop/contents/package.json"/>
       </div>
     )
   }
@@ -44,6 +45,54 @@ class Likes extends React.Component {
       likes: { this.state.likes }
       <button onClick={ this.updateLikes }>Like</button>
     </span>
+  }
+}
+
+class Fetcher extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { json: {} };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const requestObject = {
+      headers: { Accept: 'application/vnd.github.VERSION.raw' }
+    };
+
+    fetch(this.props.url, requestObject )
+      .then(response => {
+        if (response.ok) {
+          response.json().then(json => {
+            this.setState({ json: json });
+          });
+        } else {
+          this.setState({ json: { error: 'Something went wrong...' } })
+        }
+    });
+  }
+
+  render() {
+    return <div>
+      <button onClick={ this.handleClick() }>
+        Get data
+      </button>
+      <JsonPrinter json={ this.state.json } />
+      <div className="error">
+        { this.state.error }
+      </div>
+    </div>
+  }
+}
+
+class JsonPrinter extends React.Component {
+  render() {
+    return <div>
+      <code>
+        { JSON.stringify(this.props.json) }
+      </code>
+    </div>
   }
 }
 
