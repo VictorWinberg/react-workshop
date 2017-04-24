@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "React workshop with Cybercom",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
   "devDependencies": {},
   "scripts": {},
   "repository": {
