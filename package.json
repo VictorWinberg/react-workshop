@@ -1,0 +1,19 @@
+{
+  "name": "react-workshop",
+  "version": "1.0.0",
+  "description": "React workshop with Cybercom",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorWinberg/react-workshop.git"
+  },
+  "author": "Victor Winberg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictorWinberg/react-workshop/issues"
+  },
+  "homepage": "https://github.com/VictorWinberg/react-workshop#readme"
+}
