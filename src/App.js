@@ -6,12 +6,18 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Hello />
+        <Hello /> with <Name first="Victor" last="Winberg" />
       </div>
     )
   }
 }
 
 const Hello = () => <span>Hello World</span>;
+
+class Name extends React.Component {
+  render() {
+    return <span>{ this.props.first } { this.props.last }</span>;
+  }
+}
 
 export default App;
